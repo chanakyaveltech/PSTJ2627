@@ -1,0 +1,16 @@
+import java.util.Arrays;
+
+public class LargestNumber {
+    public String largestNumber(int[] nums) {
+        String[] strNums = new String[nums.length];
+        for (int i = 0; i < nums.length; i++) strNums[i] = String.valueOf(nums[i]);
+        Arrays.sort(strNums, (a, b) -> (b + a).compareTo(a + b));
+        if (strNums[0].equals("0")) return "0";
+        StringBuilder sb = new StringBuilder();
+        for (String s : strNums) sb.append(s);
+        return sb.toString();
+    }
+    public static void main(String[] args) {
+        System.out.println(new LargestNumber().largestNumber(new int[]{3,30,34,5,9}));
+    }
+}
